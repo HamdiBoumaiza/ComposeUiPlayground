@@ -26,3 +26,7 @@
 .gradle/configuration-cache/
 
 .gradle/checksums/
+
+.gradle/6.6.1/
+
+.gradle/6.5/
