@@ -22,6 +22,8 @@
 
         <activity android:name=".ListActivity" />
         <activity android:name=".ConstraintLayoutActivity" />
+        <activity android:name=".RowLayoutActivity" />
+        <activity android:name=".StackLayoutActivity" />
     </application>
 
 </manifest>

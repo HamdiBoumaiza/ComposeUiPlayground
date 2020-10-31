@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MyComposeUiSample</string>
     <string name="action_settings">Settings</string>
+    <string name="create_list">Create a list with compose</string>
+    <string name="constraint_example">Constraint Layout example</string>
+    <string name="rows_example">Rows</string>
+    <string name="stacks_example">Stacks</string>
 </resources>

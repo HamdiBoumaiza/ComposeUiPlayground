@@ -29,13 +29,30 @@ class MainActivity : AppCompatActivity() {
     fun MainMenu() {
         ScrollableColumn(Modifier.fillMaxSize()) {
             val textModifier = Modifier.gravity(Alignment.CenterHorizontally).padding(16.dp)
-            Button(onClick = { startComposeActivity(ListActivity()) }, modifier = textModifier) {
-                Text("Create a list with compose")
-            }
-            Button(onClick = { startComposeActivity(ConstraintLayoutActivity()) }, modifier = textModifier) {
-                Text("Constraint Layout example")
-            }
+            setButton(getString(R.string.create_list),
+                    { startComposeActivity(ListActivity()) },
+                    textModifier
+            )
+            setButton(getString(R.string.constraint_example),
+                    { startComposeActivity(ConstraintLayoutActivity()) },
+                    textModifier
+            )
+            setButton(getString(R.string.rows_example),
+                    { startComposeActivity(RowLayoutActivity()) },
+                    textModifier
+            )
+            setButton(getString(R.string.stacks_example),
+                    { startComposeActivity(StackLayoutActivity()) },
+                    textModifier
+            )
         }
+    }
+
+    @Composable
+    private fun setButton(text: String,
+                          onClick: () -> Unit,
+                          modifier: Modifier = Modifier) {
+        Button(onClick = { onClick() }, modifier = modifier) { Text(text) }
     }
 
     private fun startComposeActivity(activity: Activity) {
