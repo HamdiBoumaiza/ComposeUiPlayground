@@ -8,11 +8,14 @@ import androidx.compose.foundation.ScrollableColumn
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.setContent
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     @Composable
     fun MainMenu() {
         ScrollableColumn(Modifier.fillMaxSize()) {
-            val textModifier = Modifier.gravity(Alignment.CenterHorizontally).padding(16.dp)
+            val textModifier = Modifier.align(Alignment.CenterHorizontally).padding(16.dp)
             setButton(getString(R.string.create_list),
                     { startComposeActivity(ListActivity()) },
                     textModifier
@@ -51,8 +54,19 @@ class MainActivity : AppCompatActivity() {
     @Composable
     private fun setButton(text: String,
                           onClick: () -> Unit,
-                          modifier: Modifier = Modifier) {
-        Button(onClick = { onClick() }, modifier = modifier) { Text(text) }
+                          modifier: Modifier) {
+        Button(
+                onClick = { onClick() },
+                modifier = modifier,
+                shape = RoundedCornerShape(8.dp),
+                backgroundColor = Color.Black
+        ) {
+            Text(
+                    text = text,
+                    textAlign = TextAlign.Center,
+                    color = Color.White,
+            )
+        }
     }
 
     private fun startComposeActivity(activity: Activity) {
